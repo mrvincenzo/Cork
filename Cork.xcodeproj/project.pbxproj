@@ -97,6 +97,8 @@
 		635E44952A891078002C034E /* Outdated Packages Notification Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635E44942A891078002C034E /* Outdated Packages Notification Type.swift */; };
 		6360355A29BDF67B00CC0760 /* Update Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355929BDF67A00CC0760 /* Update Availability.swift */; };
 		63603BA92BBC1C9F0083AEDB /* DavidFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 63603BA82BBC1C9F0083AEDB /* DavidFoundation */; };
+		63603BB12BBDC9320083AEDB /* SwiftLintFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 63603BB02BBDC9320083AEDB /* SwiftLintFramework */; };
+		63603BB32BBDC9320083AEDB /* swiftlint in Frameworks */ = {isa = PBXBuildFile; productRef = 63603BB22BBDC9320083AEDB /* swiftlint */; };
 		63689F7D2ACC6CFF00BD354C /* Package Detail Header Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F7C2ACC6CFF00BD354C /* Package Detail Header Complex.swift */; };
 		63689F7F2ACC8FDC00BD354C /* Package Modification Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F7E2ACC8FDC00BD354C /* Package Modification Buttons.swift */; };
 		63689F832ACC9FE000BD354C /* Button Bottom Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F822ACC9FE000BD354C /* Button Bottom Row.swift */; };
@@ -539,6 +541,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63603BB32BBDC9320083AEDB /* swiftlint in Frameworks */,
+				63603BB12BBDC9320083AEDB /* SwiftLintFramework in Frameworks */,
 				63689FB62ACFF18900BD354C /* LaunchAtLogin in Frameworks */,
 				63603BA92BBC1C9F0083AEDB /* DavidFoundation in Frameworks */,
 				63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */,
@@ -1735,6 +1739,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				63603BB62BBDCB080083AEDB /* PBXTargetDependency */,
 				C4C2A0E62A9109EB00E6F172 /* PBXTargetDependency */,
 			);
 			name = Cork;
@@ -1742,6 +1747,8 @@
 				63936A4A29AE09D00069C988 /* SwiftyJSON */,
 				63689FB52ACFF18900BD354C /* LaunchAtLogin */,
 				63603BA82BBC1C9F0083AEDB /* DavidFoundation */,
+				63603BB02BBDC9320083AEDB /* SwiftLintFramework */,
+				63603BB22BBDC9320083AEDB /* swiftlint */,
 			);
 			productName = Cork;
 			productReference = 634065612871AA42001A2178 /* Cork.app */;
@@ -1803,6 +1810,7 @@
 				63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 				63603BA72BBC1C9F0083AEDB /* XCRemoteSwiftPackageReference "DavidFoundation" */,
+				63603BAF2BBDC9320083AEDB /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 634065622871AA42001A2178 /* Products */;
 			projectDirPath = "";
@@ -2124,6 +2132,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		63603BB62BBDCB080083AEDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 63603BB52BBDCB080083AEDB /* SwiftLintPlugin */;
+		};
 		C4C2A0E62A9109EB00E6F172 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4C2A0DF2A9108DA00E6F172 /* CorkHelp */;
@@ -2300,6 +2312,7 @@
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cork/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -2332,6 +2345,7 @@
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cork/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -2441,6 +2455,14 @@
 				kind = branch;
 			};
 		};
+		63603BAF2BBDC9320083AEDB /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.54.0;
+			};
+		};
 		63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
@@ -2464,6 +2486,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63603BA72BBC1C9F0083AEDB /* XCRemoteSwiftPackageReference "DavidFoundation" */;
 			productName = DavidFoundation;
+		};
+		63603BB02BBDC9320083AEDB /* SwiftLintFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63603BAF2BBDC9320083AEDB /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = SwiftLintFramework;
+		};
+		63603BB22BBDC9320083AEDB /* swiftlint */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63603BAF2BBDC9320083AEDB /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = swiftlint;
+		};
+		63603BB52BBDCB080083AEDB /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63603BAF2BBDC9320083AEDB /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
 		};
 		63689FB52ACFF18900BD354C /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;
